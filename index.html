@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Ground Control</title>
+</head>
+<body>
+    <header class="top">
+        <div class="name">
+            <div class="name-h1">
+                <a href="#"><h1>ground control</h1></a>
+            </div>
+            <div class="name-p">
+                <p>:// 客廳 / 照明</p>
+            </div>
+        </div>
+        <div class="settings">
+            <div class="avatar">
+                <a href="about.html">
+                    <img src="images/avatar.png" width="100%" height="100%">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="inbox">
+        <nav class="side">
+            <ul>
+                <li class="room">客廳</li>
+                <ul>
+                    <li class="toys">
+                        <a href="error.html">
+                            <i class="material-icons-outlined inline-icon">ac_unit</i>空調
+                        </a>
+                    </li>
+                    <li class="toys selected">
+                        <i class="material-icons-outlined inline-icon">light</i>照明
+                    </li>
+                </ul>
+                <li class="room">臥房</li>
+                <ul>
+                    <li class="toys">
+                        <a href="error.html">
+                            <i class="material-icons-outlined inline-icon">air</i>除濕
+                        </a>
+                    </li>
+                    <li class="toys">
+                        <a href="error.html">
+                            <i class="material-icons-outlined inline-icon">nightlight</i>夜燈
+                        </a>
+                    </li>
+                    <li class="toys">
+                        <a href="error.html">
+                            <i class="material-icons-outlined inline-icon">border_horizontal</i>窗簾
+                        </a>
+                    </li>
+                </ul>
+                <li class="room">玄關</li>
+                <ul>
+                    <li class="toys">
+                        <a href="error.html">
+                            <i class="material-icons-outlined inline-icon">door_front</i>門鎖
+                        </a>
+                    </li>
+                    <li class="toys">
+                        <a href="error.html">
+                            <i class="material-icons-outlined inline-icon">room_service</i>電鈴
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
+        <form class="card card-device">
+            <div class="banner banner-device">
+                <div id="banner-device-art-philips"></div>
+                <div class="banner-device-title">
+                    <hgroup>
+                        <h2>客廳照明</h2>
+                        <h3>已透過 Wi-Fi 連線至「Philips Hue」</h3>
+                    </hgroup>
+                </div>
+                <input id="btn-apply" class="banner-btn" type="submit" value="強制套用" title="若未能即時反應，請嘗試強制套用">
+                <input id="btn-def" class="banner-btn" type="reset" title="還原為預設值">
+            </div>
+            <div class="groundcontrol groundcontrol-device">
+                <!-- 電源 -->
+                <div class="plane" id="control-power">
+                    <div class="plane-title">
+                        <h4><label for="power"><i class="material-icons-outlined inline-icon">power_settings_new</i>電源開關</label></h4>
+                    </div>
+                    <div class="plane-form">
+                        <div class="plane-form-element">
+                            <input id="power" type="checkbox" name="power" value="on" checked disabled>
+                        </div>
+                    </div>
+                    <div class="plane-state">
+                        <p>已開燈</p>
+                        <p class="text-note">暫時無法關燈。</p>
+                    </div>
+                </div>
+                <!-- 亮度 -->
+                <div class="plane" id="control-brightness">
+                    <div class="plane-title">
+                        <h4><label for="brightnessInput"><i class="material-icons-outlined inline-icon">brightness_medium</i>亮度</label></h4>
+                    </div>
+                    <div class="plane-form">
+                        <div class="plane-form-element">
+                            <input id="brightnessInput" type="range" name="brightness" value="86" min="1" max="100" oninput="brightnessOutput.value = brightnessInput.value">
+                        </div>
+                    </div>
+                    <div class="plane-state">
+                        <p><output name="brightness" id="brightnessOutput">86</output>&nbsp;&#37;</p>
+                        <p class="text-note">長期處於高亮度狀態將提早耗盡燈泡壽命。<br>
+                        <a href="https://bit.ly/3bIIwnP" target="_blank">我的燈泡壞了，該如何更換？</a></p>
+                    </div>
+                </div>
+                <!-- 色溫 -->
+                <div class="plane" id="control-temperature">
+                    <div class="plane-title">
+                        <h4><label for="temperatureInput"><i class="material-icons-outlined inline-icon">thermostat</i>色溫</label></h4>
+                    </div>
+                    <div class="plane-form">
+                        <div class="plane-form-element">
+                            <input id="temperatureInput" type="range" name="temperature" value="4100" min="1800" max="16000" oninput="temperatureOutput.value = temperatureInput.value">
+                        </div>
+                    </div>
+                    <div class="plane-state">
+                        <p><output name="temperature" id="temperatureOutput">4100</output>&nbsp;K</p>
+                        <p class="text-note">
+                            若調整燈泡色溫，則將忽略光線顏色設定，反之亦然。<br>
+                            <a href="http://bit.ly/3t7xA9k" target="_blank">什麼是色溫？</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- 顏色 -->
+                <div class="plane" id="control-color">
+                    <div class="plane-title">
+                        <h4><i class="material-icons-outlined inline-icon">palette</i>顏色</h4>
+                    </div>
+                    <div class="plane-form">
+                        <div class="plane-form-element">
+                            <table>
+                                <tr>
+                                    <td class="color" id="red"></td>
+                                    <td class="color" id="orange"></td>
+                                    <td class="color" id="yellow"></td>
+                                    <td class="color" id="green"></td>
+                                    <td class="color" id="blue"></td>
+                                    <td class="color" id="indigo"></td>
+                                    <td class="color" id="purple"></td>
+                                </tr>
+                                <tr id="color-radio">
+                                    <td><input type="radio" id="red" name="color" value="red" disabled></td>
+                                    <td><input type="radio" id="orange" name="color" value="orange" disabled></td>
+                                    <td><input type="radio" id="yellow" name="color" value="yellow" checked></td>
+                                    <td><input type="radio" id="green" name="color" value="green" disabled></td>
+                                    <td><input type="radio" id="blue" name="color" value="blue"disabled></td>
+                                    <td><input type="radio" id="indigo" name="color" value="indigo" disabled></td>
+                                    <td><input type="radio" id="purple" name="color" value="purple" disabled></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="plane-state">
+                        <p>紅、橙、黃、綠、藍、靛、紫</p>
+                        <p class="text-note">若調整光線顏色，則將忽略燈泡色溫設定，反之亦然。<br>
+                        目前由「色溫」控制。</p>
+                    </div>
+                </div>
+                <!-- 定時 -->
+                <div class="plane" id="control-timer">
+                    <div class="plane-title">
+                        <h4><label for="timer"><i class="material-icons-outlined inline-icon">hotel</i>睡眠定時開關</label></h4>
+                    </div>
+                    <div class="plane-form">
+                        <div class="plane-form-element">
+                            <input id="timer" type="number" name="timer" value="120" min="0" placeholder="分鐘">
+                        </div>
+                    </div>
+                    <div class="plane-state">
+                        <p>分鐘後關閉</p>
+                        <p class="text-note">輸入「0」表示停用計時器。<br>
+                        燈光會逐漸黯淡。</p>
+                    </div>
+                </div>
+                <!-- 情境模式 -->
+                <div class="plane" id="control-preset">
+                    <div class="plane-title">
+                        <h4><label for="preset"><i class="material-icons-outlined inline-icon">nightlife</i>情境模式</label></h4>
+                    </div>
+                    <div class="plane-form">
+                        <div class="plane-form-element">
+                            <select id="preset" name="preset">
+                                <option class="option-label" value="preset-night" disabled>夜間</option>
+                                <option value="party">派對</option>
+                                <option value="dinner" selected>晚宴</option>
+                                <option value="theater">劇院</option>
+                                <option class="option-label" value="preset-day" disabled>日間</option>
+                                <option value="theater">工作</option>
+                                <option value="theater">會議</option>
+                                <option class="option-label" value="preset-other" disabled>其他</option>
+                                <option value="custom">自訂</option>
+                                <option value="none">無</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="plane-state">
+                        <p>模式</p>
+                        <p class="text-note">輕鬆營造氣氛！</p>
+                    </div>
+                </div>
+                <!-- 操之在手 -->
+                <div class="plane">
+                    <div class="plane-title">
+                        <h4><i class="material-icons-outlined inline-icon">qr_code</i>在手機上操作</h4>
+                    </div>
+                    <div class="plane-form plane-form-qr">
+                        <div class="plane-form-element" id="plane-qr">
+                            <svg width="120" viewbox="0 0 250 250">
+                                <path d="M50,50H20V20H50ZM70,0V70H0V0ZM60,10H10V60H60ZM230,20H200V50h30ZM250,0V70H180V0ZM240,10H190V60h50ZM50,200H20v30H50Zm20-20v70H0V180ZM60,190H10v50H60ZM110,0H90V10h20Zm30,10H120V20h20ZM70,80H50V90H70Zm0,20H50v10H70ZM250,240H230v10h20ZM150,130H130v10h20Zm100,90H240v10h10ZM200,80H190V90h10Zm40,70H230v10h10Zm-20,80H210v10h10Zm-20,10H190v10h10Zm-70,0H120v10h10Zm-40,0H80v10H90Zm30-30H110v10h10ZM10,150H0v10H10Zm40-30H40v10H50Zm20,0H60v10H70Zm0,20H60v10H70Zm20-30H80v10H90Zm60-30H140V90h10ZM80,90H70v10H80Zm70-30H140V70h10ZM140,50H130V60h10ZM150,0H140V10h10ZM100,30H90V40h10Zm30,30H120V70h10Zm60,120H180v10h10Zm50-90v10H230v10h20V90ZM170,80v20h20V90H180V80Zm20,20v20h20V110H200V100ZM90,70V60h10V50H80V70Zm10-50V30h10V60h10V40h10V30H120V20Zm60,0V40h10V10H150V20ZM110,60H100V70H90V80h20v20H100v10h20v10h30V110H130V100H120V90h10V80H120V70H110Zm30-40V50h10V60h10V80h10V50H160V40H150V20ZM240,130v20h10V120H230v10Zm-20,0V120H210v20h10v10h10V130ZM150,250h20V240h20V230H170V220H160V210H150v20H140v10h10Zm-50-40H80v10H90v20h20V220H100ZM10,90V80H0v20H10v10H0v20H10v20H20V140H30v30H50V160H60V150H40V130H20V100H30v10H40V80H30V90Zm110,40v30H90v20H80V170H60V160H80V130Zm-10,10H100v10h10Zm140,30v40H240V200H220v10h10v20H220V220H210v10H190V210H180v10H170V210H160V190H130v10H120V190H110v20H100V200H80V190h20V170h10v10h10V160h10V150h30v10h10V150h10v10h20V150H180V130H170v10H160V130H150V120h10V100h10v10h10v10h10v10h10v10h10v20h20v10H220v20h10V180h10V170Zm-90,0H150V160H140v10h10v10h10Zm40,0H170v30h30Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="plane-state plane-state-qr">
+                        <p class="text-note">
+                            想在手機上控制你的裝置嗎？<br>
+                            現在只需輕輕一掃即可達成！
+                        </p>
+                    </div>
+                </div>
+                <!-- 新增項目 -->
+                <div class="plane" id="control-add">
+                    <div class="plane-form-element">
+                        <div class="plane-two-row-1">
+                            <i class="material-icons-outlined">add</i>
+                        </div>
+                    </div>
+                    <div class="plane-two-row-2">
+                        <p class="text-note">新增更多控制項</p>
+                    </div>
+                </div>
+                <!-- 結束 -->
+            </div>
+        </form>
+    </div>
+</body>
+</html>
